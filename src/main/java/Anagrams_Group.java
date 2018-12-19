@@ -6,7 +6,7 @@
 import java.util.*;
 
 /***
- * leetcode 49 按照字典序分组
+ * D 
  * 49. Group Anagrams
  Given an array of strings, group anagrams together.
 
