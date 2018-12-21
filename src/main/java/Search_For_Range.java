@@ -1,44 +1,61 @@
 /**
  * @author syz
- * @date 2018-12-20 21:20
+ * @date 2018-12-21 21:19
  */
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
- ——唯有更努力才能让一切都是最好的安排。
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   ——EASY
- 题目：
+ * leetcode 34 区间查找
+ * 题目：
+ 给定一个已经升序排序的整形数组，找出给定目标值的开始位置和结束位置。
 
- Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+ 你的算法时间复杂度必须是 O(log n) 级别。
 
- You may assume that each input would have exactly one solution, and you may not use the same element twice.
- * */
+ 如果在数组中找不到目标，返回 [-1, -1]。
+
+ 例如:
+ 给出 [5, 7, 7, 8, 8, 10] 和目标值 8，
+ 返回 [3, 4]。
+ *
+ * **/
 public class Search_For_Range {
-    public static int[] f1 (int[] arr,int target)  {
-        if (arr == null || arr.length == 0) {
-            return new int[]{-1,-1};
-        }
-        Map<Integer,Integer> map = new HashMap<Integer, Integer>();
-        for (int i = 0; i <arr.length ; i++) {
-            map.put(arr[i],i);
-        }
-        for (int i = 0; i < arr.length ; i++) {
-            if (map.containsKey(target - arr[i]) && i != map.get(target - arr[i])) {
-                int min = Math.min(i,map.get(target - arr[i]));
-                int max = Math.max(i,map.get(target - arr[i]));
-                return new int[]{min,max};
+    public static int[] f1 (int[] arr ,int target) {
+        int begin = 0;
+        int end = arr.length - 1;
+        int mid = 0;
+        while (begin <= end) {
+            mid = begin + (end - begin)/2;
+            if (arr[mid] == target) {
+                break;
+            }  else if (arr[mid] > target) {
+                end = mid + 1;
+            } else {
+                begin = mid + 1;
             }
         }
-        return new int[]{-1,-1};
+        int[] result = new int[2];
+        if (arr[mid] == target){
+            int newBegin = mid;
+            int newEnd = mid;
+            while (newBegin > 0 && arr[newBegin - 1] == target){
+                newBegin--;
+            }
+            while (newEnd < arr.length - 1 && arr[newEnd + 1] == target) {
+                newEnd++;
+            }
+            result[0] = newBegin;
+            result[1] = newEnd;
+        } else {
+            result[0] = -1;
+            result [1] = -1;
+        }
+        return result;
 
     }
 
     public static void main(String[] args) {
-              int[] arr = {1,2,3,4,5,6,7,8};
-              int target = 8;
-              int[] result = f1(arr,target);
-              int i = 5;
+        int[] arr = {5,7,7,8,8,8,8,10};
+        int target = 8;
+        int[] result = f1(arr,target);
+        int i = 5;
     }
 }
