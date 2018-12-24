@@ -4,6 +4,7 @@
  */
 /**
  * leetcode 74 Search a 2D Matrix 搜索一个二维矩阵
+ * 前一行最后一个元素一定比该行第一个元素小，每行严格递增
  * **/
 public class Search_A_2D_Matrix_I {
     public static boolean f1 (int[][] matrix,int target) {
