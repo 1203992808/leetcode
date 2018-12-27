@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * leetcode 22 生成n组合法的括号
+ *
  * 例如：
  * 当 n = 3 时 "((()))", "(()())", "(())()", "()(())", "()()()"
  *
