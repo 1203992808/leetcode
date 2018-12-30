@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 /***
  * leetcode 290 词语模式
- * Given a pattern and a string str, find if str follows the same pattern.
+ Given a pattern and a string str, find if str follows the same pattern.
 
  Examples:
  pattern = "abba", str = "dog cat cat dog" should return true.
