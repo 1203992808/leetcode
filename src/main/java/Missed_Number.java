@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.concurrent.ForkJoinTask;
 
 /**
  * @Auther: syz
@@ -40,6 +41,14 @@ public class Missed_Number {
         }
         return -1;
     }
+    public static int f2 (int [] arr) {
+        int result = 0;
+        for (int i = 0;i< arr.length;i++) {
+            result ^= arr[i] ^ i;
+        }
+
+        return result^ arr.length;
+    }
     public static void swap (int[] arr,int i,int j) {
         int temp = arr[i];
         arr[i] = arr[j];
@@ -47,7 +56,7 @@ public class Missed_Number {
     }
     public static void main(String[] args) {
         int[] arr = {3,0,5,2,1};
-        System.out.println(f1(arr));
+        System.out.println(f2(arr));
     }
 }
 
