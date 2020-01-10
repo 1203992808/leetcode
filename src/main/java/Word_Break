@@ -33,7 +33,6 @@ import java.util.List;
  *
  * 输入: s = "catsandog", wordDict = ["cats", "dog", "sand", "and", "cat"]
  * 输出: false
- *
  * */
 public class Word_Break {
 
